@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cheun Perret · Développeur</title>
+<meta name="description" content="Portfolio de Cheun Perret, élève ingénieur à l'ISEN Brest en alternance chez IFREMER : applis web, outils pour la recherche, IA et jeux vidéo.">
+<meta name="theme-color" content="#17123A">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cheun Perret · Développeur">
+<meta property="og:description" content="Applis web, outils pour la recherche, IA et jeux vidéo.">
+<meta property="og:image" content="assets/og.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/rubik-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+<script>
+  // Marque la page avant l'affichage : les styles d'animation ne s'appliquent que si JS tourne
+  // et que la personne n'a pas demandé à réduire les animations.
+  document.documentElement.classList.add('js');
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('reduce-motion');
+  // Filet de sécurité : si le script principal ne démarre pas, on affiche tout.
+  setTimeout(function () { if (!window.__cpReady) document.documentElement.classList.add('reduce-motion'); }, 3000);
+</script>
+</head>
+<body>
+
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<!-- Écran d'accueil « PRESS START » (une fois par visite, passable) -->
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro__inner">
+    <p class="intro__title">CHEUN<br><span>PERRET</span></p>
+    <p class="intro__press">PRESS START</p>
+    <p class="intro__hint">Appuie sur une touche ou clique</p>
+  </div>
+</div>
+
+<!-- Barre d'XP qui suit la lecture de la page -->
+<div class="xpbar" aria-hidden="true"><div class="xpbar__fill" id="xpFill"></div></div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a href="#top" class="brand"><span class="brand__mark">CP</span>Cheun Perret</a>
+    <nav aria-label="Navigation principale">
+      <ul class="nav__links">
+        <li><a href="#chess">Quête en cours</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#parcours">Parcours</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+
+<!-- ============ HERO ============ -->
+<section class="hero wrap" id="top">
+  <div class="hero__text">
+    <p class="tag tag--mint" data-anim="pop">PLAYER 1 · READY</p>
+    <h1 class="hero__title" id="heroTitle">Je conçois des applis web, des outils pour la recherche <em>et des jeux.</em></h1>
+    <p class="hero__lead" data-anim="up">Élève ingénieur en 5<sup>e</sup> année à l'ISEN Brest, en alternance chez IFREMER. Du full-stack à la donnée scientifique, avec un faible pour le game dev.</p>
+    <div class="btns" data-anim="up">
+      <a class="btn btn--accent" href="#projets">Voir les projets</a>
+      <a class="btn btn--white" href="#contact">Me contacter</a>
+    </div>
+  </div>
+  <div class="hero__stack" id="heroStack" aria-hidden="true">
+    <img class="shot shot--1" src="assets/img/zombie-titre.webp" width="1280" height="720" alt="">
+    <img class="shot shot--2" src="assets/img/chess-reflexion.webp" width="1124" height="744" alt="">
+    <img class="shot shot--3" src="assets/img/arbres-accueil.webp" width="1280" height="720" alt="">
+  </div>
+</section>
+
+<!-- ============ CHESS IA ============ -->
+<section class="quest" id="chess">
+  <div class="wrap">
+    <div class="quest__tags" data-anim="up">
+      <span class="tag tag--black">QUETE PRINCIPALE</span>
+      <span class="tag tag--white"><span class="blink" aria-hidden="true">●</span> EN COURS</span>
+    </div>
+    <div class="quest__grid">
+      <div class="quest__text">
+        <h2 class="quest__title" data-anim="title">Chess IA</h2>
+        <p class="quest__lead" data-anim="up">Apprendre à une IA à jouer aux échecs, niveau par niveau. Chaque étape débloque un nouveau moteur qui doit battre le précédent, et des tournois contre Stockfish mesurent les progrès.</p>
+        <p class="quest__yt" data-anim="up"><strong>Prochainement documenté en vidéo</strong> sur ma chaîne YouTube, <a href="https://www.youtube.com/@Cheun-i9l">cheun</a>.</p>
+        <div class="btns" data-anim="up">
+          <a class="btn btn--black" href="https://www.youtube.com/@Cheun-i9l">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9l5 3-5 3z"/></svg>
+            Découvrir la chaîne
+          </a>
+          <a class="btn btn--white" href="https://github.com/Choopsy/Chess_IA_Project">Le dépôt GitHub</a>
+        </div>
+      </div>
+      <figure class="quest__shot" data-parallax="-6">
+        <img src="assets/img/chess-reflexion.webp" width="1124" height="744" loading="lazy" alt="Chess IA : l'échiquier et le panneau « Réflexion du moteur » d'alpha-bêta, à 18 432 positions explorées">
+      </figure>
+    </div>
+
+    <div class="levels">
+      <div class="levels__head" data-anim="up">
+        <span class="px">XP</span>
+        <span class="px"><span id="xpDone">0</span> / 11 NIVEAUX</span>
+      </div>
+      <ol class="levels__grid" id="levels">
+        <li class="lvl lvl--done"><span class="lvl__n">1</span><span class="lvl__name">Le socle</span></li>
+        <li class="lvl lvl--done"><span class="lvl__n">2</span><span class="lvl__name">L'interface</span></li>
+        <li class="lvl lvl--done"><span class="lvl__n">3</span><span class="lvl__name">Glouton</span></li>
+        <li class="lvl lvl--done"><span class="lvl__n">4</span><span class="lvl__name">Minimax</span></li>
+        <li class="lvl lvl--done"><span class="lvl__n">5</span><span class="lvl__name">Alpha-bêta</span></li>
+        <li class="lvl lvl--done"><span class="lvl__n">6</span><span class="lvl__name">Positionnel</span></li>
+        <li class="lvl lvl--done"><span class="lvl__n">7</span><span class="lvl__name">Quiescence</span></li>
+        <li class="lvl lvl--locked"><span class="lvl__n">8</span><span class="lvl__name">Transposition</span><span class="lvl__soon">A VENIR</span></li>
+        <li class="lvl lvl--done"><span class="lvl__n">9</span><span class="lvl__name">Tournois</span></li>
+        <li class="lvl lvl--locked"><span class="lvl__n">10</span><span class="lvl__name">UCI · Lichess</span><span class="lvl__soon">A VENIR</span></li>
+        <li class="lvl lvl--locked"><span class="lvl__n">11</span><span class="lvl__name">Deep learning</span><span class="lvl__soon">A VENIR</span></li>
+      </ol>
+    </div>
+
+    <div class="stats">
+      <div class="stat" data-anim="pop"><span class="stat__n" data-count="379">379</span><span class="stat__l">parties jouées en un tournoi</span></div>
+      <div class="stat" data-anim="pop"><span class="stat__n" data-count="3">3</span><span class="stat__l">niveaux de Stockfish comme étalons</span></div>
+      <div class="stat" data-anim="pop"><span class="stat__n" data-count="11">11</span><span class="stat__l">étapes, de l'aléatoire au deep learning</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJETS ============ -->
+<section class="projects wrap" id="projets">
+  <header class="section-head">
+    <p class="px px--mint" data-anim="up">SELECTION DU NIVEAU</p>
+    <h2 class="section-title" data-anim="title">Projets terminés</h2>
+  </header>
+
+  <!-- Zombie Factory -->
+  <article class="card card--wide card--coral" data-anim="card">
+    <div class="zf" id="zf">
+      <div class="zf__screens">
+        <img class="zf__img is-on" data-mode="jour" src="assets/img/zombie-jour-usine.webp" width="1280" height="720" loading="lazy" alt="Zombie Factory, le jour : l'usine, ses tapis roulants et son entrepôt">
+        <img class="zf__img" data-mode="nuit" src="assets/img/zombie-nuit-defense.webp" width="1280" height="720" loading="lazy" alt="Zombie Factory, la nuit : la horde attaque les défenses du QG">
+      </div>
+      <div class="zf__switch" role="group" aria-label="Voir le jeu de jour ou de nuit">
+        <button type="button" class="zf__btn is-on" data-mode="jour" aria-pressed="true">☀ Jour · l'usine</button>
+        <button type="button" class="zf__btn" data-mode="nuit" aria-pressed="false">☾ Nuit · la défense</button>
+      </div>
+    </div>
+    <div class="card__body">
+      <span class="tag tag--coral">JEU VIDEO</span>
+      <h3 class="card__title">Zombie Factory</h3>
+      <p class="card__pitch">Produire le jour, survivre la nuit. Un jeu de gestion d'usine et de survie où les deux moitiés tournent en même temps.</p>
+      <ul class="card__list">
+        <li><strong>Le jour</strong>, on pose des extracteurs, on relie les machines par des tapis roulants et des ponts, on nourrit ses survivants.</li>
+        <li><strong>La nuit</strong>, la horde attaque en trois vagues : murs, tourelles, lance-flammes, mortiers et bobines Tesla.</li>
+        <li>La horde <strong>mute selon les défenses</strong> que tu utilises le plus, et le bruit de l'usine l'attire.</li>
+        <li>Cartes générées au hasard, cartes bonus toutes les 5 vagues, et un but : construire l'émetteur radio et tenir jusqu'à l'évacuation.</li>
+      </ul>
+      <p class="card__stack">Python · pygame</p>
+      <p class="card__credit">Graphismes : tilesets d'Ittai Manero et de sierrassets.</p>
+    </div>
+  </article>
+
+  <div class="grid">
+
+    <!-- Cook Book -->
+    <article class="card card--mint" data-anim="card">
+      <div class="illus illus--mint">
+        <img class="illus__px" src="assets/pixel/marmite.svg" width="48" height="56" alt="">
+        <span class="tag tag--white tag--sm">DEMO HORS LIGNE · RETOUR BIENTOT</span>
+      </div>
+      <div class="card__body">
+        <span class="tag tag--mint">APPLI WEB · FULL-STACK</span>
+        <h3 class="card__title">Cook Book</h3>
+        <p class="card__pitch">Le livre de recettes de la famille, en ligne et partagé entre amis.</p>
+        <ul class="card__list">
+          <li>Mode cuisine pas à pas et portions ajustables</li>
+          <li>Valeurs nutritionnelles calculées depuis la base CIQUAL</li>
+          <li>Catégories partagées, favoris, avis, rôles et invitations</li>
+          <li>Base Postgres sécurisée ligne par ligne (RLS)</li>
+        </ul>
+        <p class="card__stack">Next.js · React · Supabase · Tailwind</p>
+        <a class="card__link" href="https://github.com/Choopsy/cook_book">Voir le code →</a>
+      </div>
+    </article>
+
+    <!-- Galaxy OGS -->
+    <article class="card card--yellow" data-anim="card">
+      <div class="illus illus--navy">
+        <ol class="flow" id="flow" aria-label="Le workflow automatisé dans Galaxy">
+          <li>Jeton D4Science</li>
+          <li>Config BEACON</li>
+          <li>Requête BEACON</li>
+          <li>Export</li>
+          <li>Espace D4Science</li>
+          <li>Méthodes CCP</li>
+        </ol>
+      </div>
+      <div class="card__body">
+        <span class="tag tag--yellow">STAGE R&amp;D · ITALIE</span>
+        <h3 class="card__title">Galaxy Tools · OGS</h3>
+        <p class="card__pitch">Trois mois à l'OGS de Trieste, dans le réseau européen Blue-Cloud, pour automatiser l'Eutrophication Workbench.</p>
+        <ul class="card__list">
+          <li>Chaque étape du traitement transformée en outil Galaxy</li>
+          <li>Un workflow reproductible : zone, profondeur, dates, nutriments</li>
+          <li>Environnement Galaxy sous Docker, outils testés avec Planemo</li>
+          <li>Une recette conda-forge préparée pour <code>beacon-api</code></li>
+        </ul>
+        <p class="card__stack">Python · Galaxy · Docker · conda</p>
+      </div>
+    </article>
+
+    <!-- Arbres -->
+    <article class="card card--mint" data-anim="card">
+      <div class="card__media">
+        <img src="assets/img/arbres-carte.webp" width="1280" height="720" loading="lazy" alt="Patrimoine Arboré : la carte des arbres de Saint-Quentin, avec ses filtres">
+      </div>
+      <div class="card__body">
+        <span class="tag tag--mint">CO-OP · 3 JOUEURS · ISEN</span>
+        <h3 class="card__title">Arbres de Saint-Quentin</h3>
+        <p class="card__pitch">Une appli web pour gérer les 9 915 arbres d'une ville, et trois modèles d'IA pour aider à décider.</p>
+        <ul class="card__list">
+          <li>Carte interactive, fiches et ajout d'arbres</li>
+          <li>Classement par taille (K-Means)</li>
+          <li>Âge estimé et risque de déracinement en tempête (Random Forest)</li>
+        </ul>
+        <p class="card__stack">PHP · MySQL · JavaScript · scikit-learn</p>
+        <a class="card__link" href="https://github.com/Choopsy/Projet---Partie-Web">Voir le code →</a>
+      </div>
+    </article>
+
+    <!-- FocusFlow -->
+    <article class="card card--coral" data-anim="card">
+      <div class="illus illus--coral">
+        <img class="illus__px illus__px--spin" src="assets/pixel/sablier.svg" width="40" height="52" alt="">
+        <span class="tag tag--white tag--sm">DEMO HORS LIGNE · RETOUR BIENTOT</span>
+      </div>
+      <div class="card__body">
+        <span class="tag tag--coral">APPLI · PWA</span>
+        <h3 class="card__title">FocusFlow</h3>
+        <p class="card__pitch">Se concentrer comme on monte de niveau : chaque session de travail rapporte de l'XP.</p>
+        <ul class="card__list">
+          <li>Minuteur, niveaux, badges et profil</li>
+          <li>Amis et progression synchronisés en temps réel</li>
+          <li>Installable sur téléphone, environnement dockerisé</li>
+        </ul>
+        <p class="card__stack">Vue 3 · Pinia · Supabase · Docker</p>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- Bonus -->
+  <div class="bonus">
+    <p class="px px--yellow" data-anim="up">NIVEAU BONUS</p>
+    <a class="bonus__card" href="https://github.com/Choopsy/Valentine" data-anim="card">
+      <span class="bonus__heart" aria-hidden="true">♥</span>
+      <span>
+        <strong>Valentine</strong>
+        <span class="bonus__txt">« Will you be my valentine ? » Le bouton Non rétrécit à chaque clic, jusqu'à disparaître. Pour la blague.</span>
+      </span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ PARCOURS ============ -->
+<section class="journey wrap" id="parcours">
+  <header class="section-head">
+    <p class="px px--mint" data-anim="up">SAUVEGARDES</p>
+    <h2 class="section-title" data-anim="title">Parcours</h2>
+  </header>
+  <ol class="saves" id="saves">
+    <li class="save save--current" data-anim="save">
+      <span class="save__year">2024 → aujourd'hui</span>
+      <div class="save__body">
+        <h3>Ingénieur en alternance · IFREMER</h3>
+        <p class="save__where">Cycle ingénieur à l'ISEN Brest (FISA, 5<sup>e</sup> année)</p>
+        <ul>
+          <li>Pipelines CI/CD pour publier notebooks, livres et sites (Quarto, Jupyter Book)</li>
+          <li>Interface web et chatbot capable d'interroger des données scientifiques (MCP, SPARQL)</li>
+          <li>API FastAPI et scripts RDF pour le projet EOSC NODE</li>
+          <li>Site Quarto pour le hackathon GAIADATA 2025</li>
+        </ul>
+      </div>
+    </li>
+    <li class="save" data-anim="save">
+      <span class="save__year">2026</span>
+      <div class="save__body">
+        <h3>Stage R&amp;D · OGS, Trieste (Italie)</h3>
+        <p class="save__where">3 mois · automatisation de l'Eutrophication Workbench avec Galaxy</p>
+      </div>
+    </li>
+    <li class="save" data-anim="save">
+      <span class="save__year">2023 → 2024</span>
+      <div class="save__body">
+        <h3>Développeur web en alternance · ICICARTEGRISE</h3>
+        <p class="save__where">Formation développement web · LDS Brest</p>
+      </div>
+    </li>
+    <li class="save" data-anim="save">
+      <span class="save__year">2021 → 2023</span>
+      <div class="save__body">
+        <h3>BTS SIO, option SLAM</h3>
+        <p class="save__where">Saint-Louis, Châteaulin · stages chez Guillemot Corporation et Armor Lux</p>
+      </div>
+    </li>
+    <li class="save" data-anim="save">
+      <span class="save__year">2020 → 2021</span>
+      <div class="save__body">
+        <h3>Licence de biologie</h3>
+        <p class="save__where">UCO Guingamp · réorientation vers l'informatique</p>
+      </div>
+    </li>
+    <li class="save" data-anim="save">
+      <span class="save__year">2020</span>
+      <div class="save__body">
+        <h3>Bac S, spécialité SVT</h3>
+        <p class="save__where">Notre-Dame de Campostal</p>
+      </div>
+    </li>
+  </ol>
+</section>
+
+</main>
+
+<!-- ============ CONTACT ============ -->
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <p class="px" data-anim="up">PLAYER 2 ?</p>
+    <h2 class="contact__title" data-anim="title">On fait équipe ?</h2>
+    <p class="contact__lead" data-anim="up">Un poste, un projet ou juste parler de dev et de game dev : écris-moi.</p>
+    <div class="btns" data-anim="up">
+      <a class="btn btn--black" href="mailto:cheunperret56@gmail.com">cheunperret56@gmail.com</a>
+      <a class="btn btn--white" href="https://www.linkedin.com/in/cheun-perret-4bb8861b9/">LinkedIn</a>
+      <a class="btn btn--white" href="https://github.com/Choopsy">GitHub</a>
+      <a class="btn btn--white" href="https://www.youtube.com/@Cheun-i9l">YouTube · cheun</a>
+    </div>
+    <div class="contact__foot">
+      <p>© 2026 Cheun Perret · fait main en HTML, CSS et JavaScript</p>
+      <div class="coin">
+        <button type="button" class="coin__btn" id="coinBtn" aria-describedby="coinHelp">
+          <span class="coin__slot" aria-hidden="true"><span class="coin__piece" id="coinPiece"></span></span>
+          <span class="coin__label">INSERT COIN</span>
+          <span class="coin__credits" id="coinCredits">CREDITS 0/5</span>
+        </button>
+        <p class="coin__help" id="coinHelp"><span>ou tape</span> <span class="keys"><kbd class="key" aria-label="haut"><svg class="key__arrow key__arrow--u" viewBox="0 0 10 10" width="10" height="10" aria-hidden="true"><path d="M5 1 9 6H6v3H4V6H1z" fill="currentColor"/></svg></kbd><kbd class="key" aria-label="haut"><svg class="key__arrow key__arrow--u" viewBox="0 0 10 10" width="10" height="10" aria-hidden="true"><path d="M5 1 9 6H6v3H4V6H1z" fill="currentColor"/></svg></kbd><kbd class="key" aria-label="bas"><svg class="key__arrow key__arrow--d" viewBox="0 0 10 10" width="10" height="10" aria-hidden="true"><path d="M5 1 9 6H6v3H4V6H1z" fill="currentColor"/></svg></kbd><kbd class="key" aria-label="bas"><svg class="key__arrow key__arrow--d" viewBox="0 0 10 10" width="10" height="10" aria-hidden="true"><path d="M5 1 9 6H6v3H4V6H1z" fill="currentColor"/></svg></kbd><kbd class="key" aria-label="gauche"><svg class="key__arrow key__arrow--l" viewBox="0 0 10 10" width="10" height="10" aria-hidden="true"><path d="M5 1 9 6H6v3H4V6H1z" fill="currentColor"/></svg></kbd><kbd class="key" aria-label="droite"><svg class="key__arrow key__arrow--r" viewBox="0 0 10 10" width="10" height="10" aria-hidden="true"><path d="M5 1 9 6H6v3H4V6H1z" fill="currentColor"/></svg></kbd><kbd class="key" aria-label="gauche"><svg class="key__arrow key__arrow--l" viewBox="0 0 10 10" width="10" height="10" aria-hidden="true"><path d="M5 1 9 6H6v3H4V6H1z" fill="currentColor"/></svg></kbd><kbd class="key" aria-label="droite"><svg class="key__arrow key__arrow--r" viewBox="0 0 10 10" width="10" height="10" aria-hidden="true"><path d="M5 1 9 6H6v3H4V6H1z" fill="currentColor"/></svg></kbd><kbd class="key">B</kbd><kbd class="key">A</kbd></span></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Petit zombie qui marche en bas de l'écran pendant le défilement -->
+<div class="walker" id="walker" aria-hidden="true">
+  <img class="walker__f walker__f--a" src="assets/pixel/zombie-a.svg" width="48" height="64" alt="">
+  <img class="walker__f walker__f--b" src="assets/pixel/zombie-b.svg" width="48" height="64" alt="">
+</div>
+
+<!-- Easter egg : mode nuit (code Konami) -->
+<div class="night" id="night">
+  <div class="night__msg">
+    <p class="px" id="nightTitle">LA NUIT TOMBE · LA HORDE ARRIVE</p>
+    <p class="night__sub">Clique sur les zombies pour défendre le portfolio · <span class="px" id="nightScore">0 / 9</span></p>
+    <button type="button" class="btn btn--white night__close" id="nightClose">Revenir au jour (Échap)</button>
+  </div>
+  <div class="night__horde" id="horde" aria-hidden="true"></div>
+</div>
+<p class="sr" id="nightLive" aria-live="polite"></p>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="vendor/lenis.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
