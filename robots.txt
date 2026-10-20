@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://choopsy.github.io/sitemap.xml
+Sitemap: https://cheunperret.fr/sitemap.xml
