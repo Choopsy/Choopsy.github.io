@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Portfolio Cheun Perret · direction « Arcade »
+   Portfolio Perret Cheun · direction « Arcade »
    Les couleurs, polices et ombres sont réglées ici, dans :root.
    ========================================================================== */
 
@@ -317,7 +317,8 @@ code { font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size:
 .walker__f--b { opacity: 0; }
 .walker.is-step .walker__f--a { opacity: 0; }
 .walker.is-step .walker__f--b { opacity: 1; }
-.walker.is-left { scale: -1 1; }
+/* Demi-tour : on retourne seulement le dessin, pas le conteneur (sinon sa position serait inversée aussi) */
+.walker.is-left .walker__f { transform: scaleX(-1); }
 .reduce-motion .walker, html:not(.js) .walker { display: none; }
 @media (max-width: 640px) {
   .walker { width: 36px; height: 48px; opacity: 0; transition: opacity .3s; }

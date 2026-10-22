@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Portfolio Cheun Perret · animations
+   Portfolio Perret Cheun · animations
    GSAP + ScrollTrigger pour les animations, Lenis pour le défilement fluide.
    Si la personne a demandé à réduire les animations (réglage du système),
    tout s'affiche directement et seules les interactions utiles restent.
