@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Maison Hortensia · Fleuriste à Brest</title>
+<meta name="description" content="Fleuriste à Brest : bouquets du jour, compositions pour mariages, événements et deuil. Commande en ligne, retrait en boutique.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/*
+  MAQUETTE — à personnaliser pour chaque prospect :
+  Coordonnées et horaires fictifs (3 place des Pétales, 02 98 00 00 01) : remplace-les par ceux du client.
+  Encore à remplir : [NOTE] [NOMBRE] [DATE] [NOM DU BOUQUET] [FLEURS DE LA SEMAINE] [PRIX]
+  Horaires : tableau HORAIRES dans le script en bas de page, et dans le pied de page.
+  Couleur d'accent : variable --accent ci-dessous.
+*/
+:root{
+  --marine:#0e2a47; --fond:#f6f7f9; --brume:#e6ebf8; --texte2:#4a5d78; --clair:#c9d4ea;
+  --bleu:#3d56b8; --accent:#f2b8cf; --blanc:#ffffff; --trait:#dbe1ee;
+  --titre:"Quicksand",Nunito,system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--fond);color:var(--marine);font:400 17px/1.6 Nunito,system-ui,sans-serif}
+img{display:block;width:100%;object-fit:cover}
+a{color:var(--marine)}
+:focus-visible{outline:3px solid var(--bleu);outline-offset:3px}
+h1,h2,h3{font-family:var(--titre);font-weight:700;letter-spacing:-.01em}
+.wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+
+/* Boutons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;border-radius:999px;font:700 16px Nunito,sans-serif;text-decoration:none;border:2px solid transparent;cursor:pointer}
+.btn-marine{background:var(--marine);color:#fff}
+.btn-marine:hover{background:var(--bleu)}
+.btn-accent{background:var(--accent);color:var(--marine);font-weight:800}
+.btn-contour{border-color:currentColor;background:transparent}
+.btn-clair{color:var(--fond)}
+
+/* Barre du haut */
+.top{display:flex;align-items:center;gap:26px;padding-top:22px;padding-bottom:22px}
+.logo{font-family:var(--titre);font-weight:700;font-size:24px;text-decoration:none;margin-right:auto}
+.nav{display:flex;gap:26px;font-weight:600;font-size:16px}
+.nav a{text-decoration:none}
+.nav a:hover{color:var(--bleu)}
+.btn-tel svg{width:17px;height:17px}
+
+/* Hero */
+.hero-img{height:460px;object-position:center 70%}
+.hero-carte{position:relative;max-width:760px;margin:-170px 0 0 max(40px,calc((100% - 1280px)/2 + 40px));background:var(--marine);color:var(--fond);padding:48px 52px;border-radius:0 32px 32px 32px}
+.hero-carte h1{font-size:68px;line-height:1.02;margin:0 0 22px}
+.hero-carte p{margin:0 0 30px;font-size:19px;color:var(--clair);max-width:44ch}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+
+/* Sections */
+.titre-section{font-size:52px;line-height:1.05;margin:0 0 20px}
+.semaine{display:grid;grid-template-columns:4fr 6fr;gap:64px;align-items:center;padding:110px 40px 90px}
+.semaine img{aspect-ratio:4/5;border-radius:32px;background:#fff}
+.petit-titre{margin:0 0 14px;font-weight:700;color:var(--bleu)}
+.prix{font-family:var(--titre);font-weight:700;font-size:34px;margin:0 0 28px}
+
+/* Composer */
+.composer{background:var(--marine);color:var(--fond)}
+.composer .wrap{display:grid;grid-template-columns:7fr 5fr;gap:60px;padding-top:100px;padding-bottom:100px}
+.composer .intro{margin:0 0 40px;font-size:19px;color:var(--clair);max-width:46ch}
+.question{margin:0 0 12px;font-weight:800;font-size:16px}
+.choix{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
+.choix button{min-height:44px;padding:0 18px;border-radius:999px;font:700 15px Nunito,sans-serif;cursor:pointer;display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--fond);border:2px solid rgba(246,247,249,.35)}
+.choix button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--marine)}
+.choix button:hover{border-color:var(--accent)}
+.pastille{width:16px;height:16px;border-radius:50%;flex:none;box-shadow:0 0 0 2px rgba(14,42,71,.25)}
+.choix .prix-taille{font-weight:500;opacity:.75}
+.champs{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:560px}
+.champs label{display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:15px}
+.champs input{min-height:48px;border-radius:14px;border:0;padding:0 14px;font:600 16px Nunito,sans-serif;color:var(--marine)}
+.recap{background:var(--fond);color:var(--marine);border-radius:32px;overflow:hidden;align-self:start}
+.recap img{height:230px;transition:opacity .25s}
+.recap-corps{padding:28px 30px 32px}
+.recap-corps .label{margin:0 0 4px;font-size:15px;color:var(--texte2)}
+.recap-corps .resume{margin:0 0 18px;font-family:var(--titre);font-weight:700;font-size:27px;line-height:1.2}
+.recap-corps .btn{width:100%;min-height:52px;border:0}
+.confirme{margin:0;padding:14px 16px;background:var(--brume);border-radius:16px;font-weight:700}
+
+/* Occasions */
+.occasions{padding:110px 40px 40px}
+.occasions .grille{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.occasions img{aspect-ratio:4/3;border-radius:28px;margin-bottom:18px}
+.occasions h3{font-size:26px;margin:0 0 6px}
+.occasions p{margin:0;color:var(--texte2)}
+
+/* Mosaïque */
+.mosaique{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:70px 40px 100px}
+.mosaique img{height:220px;border-radius:26px}
+.mosaique .large{grid-column:span 2}
+
+/* Boutique */
+.boutique{background:var(--brume)}
+.boutique .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;padding-top:90px;padding-bottom:90px}
+.adresse{margin:0 0 6px;font-size:20px;font-weight:700}
+.note{font-family:var(--titre);font-weight:700;font-size:44px;color:var(--bleu)}
+.horaires{background:#fff;border-radius:28px;padding:30px 32px;align-self:start}
+.horaires h3{font-family:Nunito,sans-serif;font-weight:800;font-size:18px;margin:0 0 14px}
+.horaires table{width:100%;border-collapse:collapse;font-size:16px}
+.horaires td{padding:10px 0;border-bottom:1px solid var(--trait)}
+.horaires td:last-child{text-align:right}
+.horaires tr.aujourdhui td{font-weight:800;color:var(--bleu)}
+
+.pied{background:var(--marine);color:var(--clair);font-size:15px}
+.pied-grille{max-width:1280px;margin:0 auto;padding:72px 40px 48px;display:grid;grid-template-columns:4fr 2fr 3fr 3fr;gap:40px}
+.pied p{margin:0 0 10px}
+.pied b{color:var(--fond)}
+.pied-logo{display:flex;align-items:center;gap:10px;color:var(--fond);text-decoration:none;margin-bottom:14px}
+.pied-logo svg{color:var(--accent)}
+.pied-logo span{font-family:var(--titre);font-weight:700;font-size:24px}
+.pied-marque p{max-width:32ch;margin-bottom:20px}
+.reseaux{display:flex;gap:10px}
+.reseaux a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:2px solid rgba(246,247,249,.3);color:var(--fond)}
+.reseaux a:hover{border-color:var(--accent);color:var(--accent)}
+.reseaux svg{width:18px;height:18px}
+.pied-titre{font-weight:800;color:var(--fond);margin-bottom:14px!important}
+.pied-liens{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.pied-liens a{color:var(--clair);text-decoration:none}
+.pied-liens a:hover{color:var(--accent)}
+.pied-accent{color:var(--accent);font-weight:700;text-decoration:none;word-break:break-all}
+.pied-bas{max-width:1280px;margin:0 auto;padding:20px 40px 32px;border-top:1px solid rgba(246,247,249,.15);display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;font-size:13px;color:#a9b8d4}
+.pied-legal{display:flex;flex-wrap:wrap;gap:18px}
+.pied-bas a{color:#a9b8d4}
+
+/* ---------- iPad (≤ 1024 px) ---------- */
+@media (max-width:1024px){
+  .wrap{padding:0 36px}
+  .nav a:not(.garde){display:none}
+  .hero-img{height:380px}
+  .hero-carte{margin:-110px 36px 0;max-width:600px;padding:38px 40px;border-radius:0 30px 30px 30px}
+  .hero-carte h1{font-size:50px}
+  .titre-section{font-size:40px}
+  .semaine{grid-template-columns:2fr 3fr;gap:36px;padding:72px 36px 60px}
+  .composer .wrap{grid-template-columns:1fr;gap:32px;padding-top:64px;padding-bottom:64px}
+  .recap{display:grid;grid-template-columns:2fr 3fr}
+  .recap img{height:100%;min-height:200px}
+  .occasions{padding:72px 36px 24px}
+  .occasions img{aspect-ratio:1/1}
+  .occasions h3{font-size:21px}
+  .mosaique{grid-template-columns:repeat(3,1fr);padding:40px 36px 72px}
+  .mosaique img{height:180px}
+  .mosaique .large{grid-column:auto}
+  .boutique .wrap{gap:32px;padding-top:64px;padding-bottom:64px}
+  .pied-grille{grid-template-columns:repeat(3,1fr);padding:56px 36px 36px}
+  .pied-marque{grid-column:1/-1}
+  .pied-bas{padding:18px 36px 30px}
+}
+
+/* ---------- Téléphone (≤ 640 px) ---------- */
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{padding:0 18px}
+  .top{padding-top:14px;padding-bottom:14px;gap:12px}
+  .logo{font-size:21px}
+  .nav{display:none}
+  .btn-tel{width:44px;height:44px;min-height:44px;padding:0}
+  .btn-tel span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .hero-img{height:280px;object-position:40% 70%}
+  .hero-carte{margin:-56px 14px 0;padding:26px 22px 24px;border-radius:0 26px 26px 26px}
+  .hero-carte h1{font-size:36px;margin-bottom:14px}
+  .hero-carte p{font-size:16px;margin-bottom:20px}
+  .actions{flex-direction:column}
+  .actions .btn{width:100%;min-height:50px}
+  .titre-section{font-size:30px;line-height:1.1}
+  .semaine{grid-template-columns:132px 1fr;gap:16px;padding:56px 18px 48px;align-items:start}
+  .semaine img{height:165px;aspect-ratio:auto;border-radius:20px;grid-row:2}
+  .semaine .texte{display:contents}
+  .semaine .entete{grid-column:1/-1}
+  .semaine .corps{grid-row:2;grid-column:2}
+  .semaine .corps p{font-size:15px}
+  .prix{font-size:24px;margin:0}
+  .semaine .btn{grid-column:1/-1;width:100%;min-height:50px}
+  .composer .wrap{padding-top:52px;padding-bottom:40px;gap:24px}
+  .composer .intro{font-size:16px;margin-bottom:28px}
+  .choix{gap:8px;margin-bottom:26px}
+  .choix.couleurs{display:grid;grid-template-columns:1fr 1fr}
+  .choix.couleurs button{padding:0 12px;font-size:14px}
+  .choix.tailles{display:grid;grid-template-columns:repeat(3,1fr)}
+  .choix.tailles button{min-height:58px;border-radius:18px;flex-direction:column;justify-content:center;gap:1px;padding:6px 4px}
+  .choix.tailles .prix-taille{font-size:13px}
+  .choix.tailles .sep{display:none}
+  .champs{grid-template-columns:1fr}
+  .recap{grid-template-columns:88px 1fr;border-radius:24px;padding:14px;gap:14px;align-items:center}
+  .recap img{width:88px;height:88px;min-height:0;border-radius:16px}
+  .recap-corps{padding:0;display:contents}
+  .recap-corps .resume{font-size:18px;margin:0}
+  .recap-corps .zone-bouton{grid-column:1/-1}
+  .occasions{padding:56px 0 24px}
+  .occasions .titre-section{margin:0 18px 20px}
+  .occasions .grille{display:flex;overflow-x:auto;gap:14px;padding:0 18px 8px;scroll-snap-type:x mandatory}
+  .occasions .grille>div{flex:none;width:250px;scroll-snap-align:start}
+  .occasions img{aspect-ratio:auto;height:170px;border-radius:20px;margin-bottom:12px}
+  .occasions h3{font-size:20px}
+  .occasions p{font-size:15px}
+  .mosaique{grid-template-columns:1fr 1fr;gap:10px;padding:24px 18px 52px}
+  .mosaique img{height:140px;border-radius:20px}
+  .mosaique .large{grid-column:span 2;height:170px}
+  .boutique .wrap{grid-template-columns:1fr;padding-top:52px;padding-bottom:52px}
+  .boutique .actions{display:grid;grid-template-columns:1fr 1fr}
+  .note{font-size:34px}
+  .horaires{padding:20px 20px 10px;border-radius:22px}
+  .pied-grille{grid-template-columns:1fr 1fr;gap:24px 16px;padding:48px 18px 28px}
+  .pied-grille>div:last-child{grid-column:1/-1}
+  .pied-bas{flex-direction:column;padding:16px 18px 28px}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap top">
+  <a class="logo" href="#">Maison Hortensia</a>
+  <nav class="nav" aria-label="Navigation principale">
+    <a href="#semaine">Bouquet de la semaine</a>
+    <a class="garde" href="#composer">Composer</a>
+    <a href="#occasions">Occasions</a>
+    <a class="garde" href="#boutique">La boutique</a>
+  </nav>
+  <a class="btn btn-marine btn-tel" href="tel:+33298000001" aria-label="Appeler la boutique">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+    <span>Appeler</span>
+  </a>
+</div>
+
+<header>
+  <img class="hero-img" src="images/hortensia-ocean.jpg" alt="Hortensias bleus et blancs face à la mer">
+  <div class="hero-carte">
+    <h1>Des fleurs du jour, composées à Brest.</h1>
+    <p>Bouquets, plantes et compositions pour les grands jours comme pour les mardis gris. Commande en ligne, retrait en boutique ou livraison dans le quartier.</p>
+    <div class="actions">
+      <a class="btn btn-accent" href="#composer">Composer mon bouquet</a>
+      <a class="btn btn-contour btn-clair" href="#boutique">Horaires et adresse</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="semaine" class="wrap semaine">
+    <img src="images/bouquet-violet.jpg" alt="Hortensia violet en bouquet">
+    <div class="texte">
+      <div class="entete">
+        <p class="petit-titre">Semaine du [DATE]</p>
+        <h2 class="titre-section">Le bouquet de la semaine</h2>
+      </div>
+      <div class="corps">
+        <p style="margin:0 0 18px;max-width:40ch">[NOM DU BOUQUET] : [FLEURS DE LA SEMAINE]. Composé chaque matin avec les arrivages du jour, en quantité limitée.</p>
+        <p class="prix">[PRIX] €</p>
+      </div>
+      <a class="btn btn-marine" href="#composer">Le réserver pour aujourd'hui</a>
+    </div>
+  </section>
+
+  <section id="composer" class="composer">
+    <div class="wrap">
+      <div>
+        <h2 class="titre-section" style="margin-bottom:14px">Composez votre bouquet</h2>
+        <p class="intro">Trois choix, et la boutique s'occupe du reste. Vous recevez un appel pour confirmer avant la préparation.</p>
+        <p class="question" id="q-occ">Pour quelle occasion ?</p>
+        <div class="choix" role="group" aria-labelledby="q-occ" data-groupe="occ">
+          <button type="button" data-v="Pour faire plaisir" aria-pressed="true">Pour faire plaisir</button>
+          <button type="button" data-v="Anniversaire" aria-pressed="false">Anniversaire</button>
+          <button type="button" data-v="Merci" aria-pressed="false">Merci</button>
+          <button type="button" data-v="Naissance" aria-pressed="false">Naissance</button>
+          <button type="button" data-v="Deuil" aria-pressed="false">Deuil</button>
+        </div>
+        <p class="question" id="q-coul">Quelles couleurs ?</p>
+        <div class="choix couleurs" role="group" aria-labelledby="q-coul" data-groupe="couleur">
+          <button type="button" data-v="bleu" aria-pressed="true"><span class="pastille" style="background:#4f6bd8"></span>Bleu hortensia</button>
+          <button type="button" data-v="rose" aria-pressed="false"><span class="pastille" style="background:#f2b8cf"></span>Rose poudré</button>
+          <button type="button" data-v="blanc" aria-pressed="false"><span class="pastille" style="background:#fff"></span>Tout blanc</button>
+          <button type="button" data-v="champetre" aria-pressed="false"><span class="pastille" style="background:#f6c177"></span>Champêtre</button>
+        </div>
+        <p class="question" id="q-taille">Quelle taille ?</p>
+        <div class="choix tailles" role="group" aria-labelledby="q-taille" data-groupe="taille">
+          <button type="button" data-v="Petit" aria-pressed="false">Petit <span class="prix-taille"><span class="sep">· </span>[PRIX] €</span></button>
+          <button type="button" data-v="Moyen" aria-pressed="true">Moyen <span class="prix-taille"><span class="sep">· </span>[PRIX] €</span></button>
+          <button type="button" data-v="Généreux" aria-pressed="false">Généreux <span class="prix-taille"><span class="sep">· </span>[PRIX] €</span></button>
+        </div>
+        <div class="champs">
+          <label>Pour le<input type="date" id="date"></label>
+          <label>Votre téléphone<input type="tel" id="tel" placeholder="06 …" autocomplete="tel"></label>
+        </div>
+      </div>
+      <div class="recap">
+        <img id="apercu" src="images/bleu-macro.jpg" alt="Hortensia bleu en gros plan">
+        <div class="recap-corps">
+          <div>
+            <p class="label">Votre demande</p>
+            <p class="resume" id="resume" aria-live="polite">Pour faire plaisir, bleu hortensia, taille moyen</p>
+          </div>
+          <div class="zone-bouton" id="zone-bouton">
+            <button class="btn btn-marine" type="button" id="envoyer">Envoyer ma demande</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="occasions" class="wrap occasions">
+    <h2 class="titre-section" style="margin-bottom:40px;max-width:16ch">Pour les jours qui comptent</h2>
+    <div class="grille">
+      <div><img src="images/rose-blanc.jpg" alt="Roses blanches et roses poudrées"><h3>Mariages</h3><p>Bouquet de la mariée, boutonnières et décoration de salle. Premier rendez-vous offert pour en parler.</p></div>
+      <div><img src="images/centre-table.jpg" alt="Composition fleurie colorée"><h3>Tables et événements</h3><p>Centres de table, anniversaires, inaugurations : on compose selon vos couleurs et votre lieu.</p></div>
+      <div><img src="images/blanc-doux.jpg" alt="Fleurs blanches en lumière douce"><h3>Deuil</h3><p>Gerbes, couronnes et compositions, livrées avec discrétion au funérarium ou à l'église.</p></div>
+    </div>
+  </section>
+
+  <div class="wrap mosaique">
+    <img class="large" src="images/bouquet-assorti.jpg" alt="Bouquet de fleurs variées et colorées">
+    <img src="images/vase-blanc.jpg" alt="Bouquet dans un vase blanc">
+    <img src="images/bleu-macro.jpg" alt="Hortensia bleu en gros plan">
+  </div>
+
+  <section id="boutique" class="boutique">
+    <div class="wrap">
+      <div>
+        <h2 class="titre-section">Passez nous voir</h2>
+        <p class="adresse">3 place des Pétales</p>
+        <p style="margin:0 0 26px;font-size:20px">29200 Brest</p>
+        <p style="margin:0 0 28px;font-size:18px"><span class="note">[NOTE]</span> / 5 sur Google, d'après [NOMBRE] avis</p>
+        <div class="actions">
+          <a class="btn btn-marine" href="tel:+33298000001">Appeler la boutique</a>
+          <a class="btn btn-contour" href="https://www.google.com/maps" target="_blank" rel="noopener">Itinéraire</a>
+        </div>
+      </div>
+      <div class="horaires">
+        <h3>Horaires</h3>
+        <table><tbody id="horaires"></tbody></table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pied">
+  <div class="pied-grille">
+    <div class="pied-marque">
+      <a class="pied-logo" href="#">
+        <svg aria-hidden="true" width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="16" cy="9" rx="5" ry="6.5"/><ellipse cx="16" cy="23" rx="5" ry="6.5"/><ellipse cx="9" cy="16" rx="6.5" ry="5"/><ellipse cx="23" cy="16" rx="6.5" ry="5"/><circle cx="16" cy="16" r="2" fill="currentColor"/></svg>
+        <span>Maison Hortensia</span>
+      </a>
+      <p>Fleuriste à Brest. Bouquets du jour, compositions pour les grands moments et plantes à offrir.</p>
+      <div class="reseaux">
+        <a href="https://www.instagram.com" aria-label="Instagram de Maison Hortensia"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
+        <a href="https://www.facebook.com" aria-label="Facebook de Maison Hortensia"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6.5v3.5H9V21h3.5v-7.5H15l.5-3.5h-3V7a1 1 0 0 1 1-1H15z"/></svg></a>
+        <a href="https://www.google.com/maps" aria-label="Fiche Google de Maison Hortensia"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <p class="pied-titre">Le site</p>
+      <ul class="pied-liens">
+        <li><a href="#semaine">Bouquet de la semaine</a></li>
+        <li><a href="#composer">Composer un bouquet</a></li>
+        <li><a href="#occasions">Occasions</a></li>
+        <li><a href="#boutique">La boutique</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="pied-titre">Horaires</p>
+      <p>Mardi au samedi<br><b>9 h 30 – 19 h</b></p>
+      <p>Dimanche<br><b>9 h 30 – 13 h</b></p>
+      <p>Lundi : fermé</p>
+    </div>
+    <div>
+      <p class="pied-titre">Contact</p>
+      <p>3 place des Pétales<br>29200 Brest</p>
+      <p><a class="pied-accent" href="tel:+33298000001">02 98 00 00 01</a><br><a class="pied-accent" href="mailto:bonjour@maison-hortensia.test">bonjour@maison-hortensia.test</a></p>
+    </div>
+  </div>
+  <div class="pied-bas">
+    <span>© 2026 Maison Hortensia. Maquette de démonstration, coordonnées fictives.</span>
+    <span class="pied-legal"><a href="#">Mentions légales</a><a href="#">Politique de confidentialité</a><a href="#">Gestion des cookies</a></span>
+    <span>Photos : Unsplash (Josefin, Sharon Pittaway, Annie Spratt, Tracey Hocking, Faye Cornish, Paulina Ponce, Marcella Marcella, Van Peng, Molly E Bossardt)</span>
+  </div>
+</footer>
+
+<script>
+/* Horaires : remplace [HORAIRES] par ceux de la boutique, ex. "9 h – 12 h 30, 14 h – 19 h" ou "Fermé" */
+const HORAIRES = {1:"Fermé",2:"9 h 30 – 19 h",3:"9 h 30 – 19 h",4:"9 h 30 – 19 h",5:"9 h 30 – 19 h",6:"9 h 30 – 19 h",0:"9 h 30 – 13 h"};
+const JOURS = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"];
+const auj = new Date().getDay();
+document.getElementById("horaires").innerHTML = [1,2,3,4,5,6,0].map(d =>
+  `<tr class="${d===auj?"aujourdhui":""}"><td>${JOURS[d]}</td><td>${HORAIRES[d]}</td></tr>`).join("");
+
+/* Composer son bouquet */
+const PHOTOS = {
+  bleu:{src:"images/bleu-macro.jpg",alt:"Hortensia bleu en gros plan",label:"bleu hortensia"},
+  rose:{src:"images/rose-gypsophile.jpg",alt:"Bouquet aux tons roses et blancs",label:"rose poudré"},
+  blanc:{src:"images/blanc-doux.jpg",alt:"Fleurs blanches en lumière douce",label:"tout blanc"},
+  champetre:{src:"images/bouquet-assorti.jpg",alt:"Bouquet champêtre multicolore",label:"champêtre"}
+};
+const etat = {occ:"Pour faire plaisir", couleur:"bleu", taille:"Moyen"};
+const apercu = document.getElementById("apercu"), resume = document.getElementById("resume"), zone = document.getElementById("zone-bouton");
+const boutonHTML = zone.innerHTML;
+function majResume(){
+  const p = PHOTOS[etat.couleur];
+  if(!apercu.src.endsWith(p.src)){apercu.src = p.src; apercu.alt = p.alt;}
+  resume.textContent = `${etat.occ}, ${p.label}, taille ${etat.taille.toLowerCase()}`;
+  zone.innerHTML = boutonHTML; brancherEnvoi();
+}
+document.querySelectorAll(".choix").forEach(g => g.addEventListener("click", e => {
+  const b = e.target.closest("button"); if(!b) return;
+  g.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x===b ? "true" : "false"));
+  etat[g.dataset.groupe] = b.dataset.v; majResume();
+}));
+function brancherEnvoi(){
+  document.getElementById("envoyer").onclick = () => {
+    zone.innerHTML = '<p class="confirme" role="status">Demande envoyée. La boutique vous rappelle pour confirmer.</p>';
+  };
+}
+brancherEnvoi();
+document.getElementById("date").min = new Date().toISOString().slice(0,10);
+</script>
+</body>
+</html>

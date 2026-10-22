@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Mie &amp; Marée · Boulangerie à Brest</title>
+<meta name="description" content="Boulangerie artisanale près du port de Brest : pains au levain, viennoiseries pur beurre, kouign-amann et far breton. Trois fournées par jour.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/*
+  MAQUETTE — nom et coordonnées fictifs (8 quai des Fournées, 02 98 00 00 00).
+  À remplacer par ceux du client. Encore à remplir : [NOTE] [NOMBRE] [PRIX].
+  Couleur d'accent : variable --accent ci-dessous.
+*/
+:root{
+  --beurre:#fff3d4; --mie:#fffaf0; --seigle:#3a2316; --nuit:#2a1910; --texte2:#6e5340;
+  --miel:#f2b441; --croute:#a4521a; --sable:#f6e1b5; --trait:#ecd7b0; --clair:#e6cfa8;
+  --accent:#a4521a;
+  --titre:"Baloo 2",Nunito,system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--beurre);color:var(--seigle);font:400 17px/1.6 Nunito,system-ui,sans-serif}
+img{display:block;width:100%;object-fit:cover}
+a{color:var(--seigle)}
+:focus-visible{outline:3px solid var(--miel);outline-offset:3px}
+h1,h2{font-family:var(--titre);font-weight:800;letter-spacing:-.01em}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+.arche{border-radius:999px 999px 28px 28px}
+
+/* Boutons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 26px;border-radius:999px;font:800 16px Nunito,sans-serif;text-decoration:none;border:2px solid transparent}
+.btn-miel{background:var(--miel);color:var(--seigle)}
+.btn-miel:hover{background:#ffc75e}
+.btn-seigle{background:var(--seigle);color:var(--mie)}
+.btn-seigle:hover{background:var(--croute)}
+.btn-accent{background:var(--accent);color:var(--mie);min-height:46px;padding:0 22px}
+.btn-contour{border-color:currentColor;background:transparent;font-weight:700}
+
+/* En-tête sur la photo */
+.hero{position:relative;color:var(--beurre);background:var(--seigle) url(images/pains-graines.jpg) center 60%/cover}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(38,22,12,.88) 0%,rgba(38,22,12,.62) 45%,rgba(38,22,12,.15) 100%)}
+.hero>*{position:relative}
+.top{display:flex;align-items:center;gap:28px;padding-top:22px;padding-bottom:22px}
+.logo{display:flex;align-items:center;gap:10px;color:var(--beurre);text-decoration:none;margin-right:auto}
+.logo span{font-family:var(--titre);font-weight:800;font-size:27px;line-height:1}
+.nav{display:flex;gap:26px;font-weight:700;font-size:16px}
+.nav a{color:var(--beurre);text-decoration:none}
+.nav a:hover{color:var(--miel)}
+.hero-corps{padding-top:120px;padding-bottom:150px}
+.hero-corps>div{max-width:640px}
+.hero h1{font-size:80px;line-height:.98;margin:0 0 22px}
+.hero p{margin:0 0 34px;font-size:21px;color:#f1dfbf;max-width:40ch}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero .btn-contour{color:var(--beurre)}
+.macaron{position:absolute;right:60px;bottom:-66px;width:140px;height:140px;border-radius:50%;background:var(--miel);color:var(--seigle);display:flex;align-items:center;justify-content:center;text-align:center;font:800 20px/1.05 var(--titre);transform:rotate(-8deg);box-shadow:0 6px 0 var(--seigle);z-index:2}
+
+/* Sections */
+.titre-section{font-size:54px;line-height:1;margin:0}
+.entete{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:36px}
+
+/* Fournées */
+.fournees{background:var(--seigle);color:var(--beurre);padding:90px 0}
+.fournees .entete p{margin:0;color:var(--clair);max-width:38ch}
+.f-grille{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.fournee{border-radius:26px;padding:26px 26px 28px;background:rgba(255,243,212,.08);border:2px solid rgba(255,243,212,.18)}
+.fournee.prochaine{background:var(--miel);color:var(--seigle);border-color:var(--miel)}
+.f-haut{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+.f-heure{font:800 46px/1 var(--titre)}
+.f-etat{font-size:13px;font-weight:800;padding:5px 12px;border-radius:999px;white-space:nowrap;border:1.5px solid rgba(255,243,212,.4)}
+.fournee.passee .f-etat{background:rgba(255,243,212,.16);border-color:transparent}
+.fournee.prochaine .f-etat{background:var(--seigle);color:var(--miel);border-color:var(--seigle)}
+.fournee h3{margin:0 0 6px;font-size:19px;font-weight:800}
+.fournee p{margin:0;font-size:15px;opacity:.85}
+
+/* Produits */
+.produits{background:var(--mie);padding:96px 0}
+.onglets{display:flex;flex-wrap:wrap;gap:10px}
+.onglets button{min-height:44px;padding:0 18px;border-radius:999px;font:800 15px Nunito,sans-serif;cursor:pointer;background:var(--mie);color:var(--seigle);border:2px solid var(--trait)}
+.onglets button[aria-selected="true"]{background:var(--seigle);color:var(--mie);border-color:var(--seigle)}
+.onglets button:hover{border-color:var(--seigle)}
+.p-corps{display:grid;grid-template-columns:5fr 7fr;gap:40px;align-items:start}
+.p-photo{height:520px}
+.p-liste{display:flex;flex-direction:column;gap:14px}
+.p-intro{margin:0 0 6px;font-size:19px;color:var(--texte2);max-width:46ch}
+.produit{background:var(--beurre);border-radius:22px;padding:22px 24px}
+.produit-haut{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:4px}
+.produit h3{margin:0;font:700 27px/1.15 var(--titre)}
+.produit p{margin:0;color:var(--texte2)}
+.etiquette{flex:none;font-size:13px;font-weight:800;padding:4px 12px;border-radius:999px;background:var(--miel);color:var(--seigle)}
+.etiquette.specialite{background:var(--seigle);color:var(--miel)}
+.p-note{margin:6px 0 0;font-size:15px;color:var(--texte2)}
+
+/* Pain de la semaine */
+.semaine{display:grid;grid-template-columns:4fr 6fr;gap:64px;align-items:center;padding-top:100px;padding-bottom:100px}
+.semaine img{height:560px}
+.pastille{display:inline-block;background:var(--miel);border-radius:999px;padding:4px 14px;font-weight:800;font-size:15px;margin:0 0 14px}
+.semaine h2{font-size:58px;line-height:1;margin:0 0 20px}
+.semaine p.texte{margin:0;font-size:19px;max-width:46ch}
+.points{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
+.points div{border-top:3px solid var(--seigle);padding-top:12px}
+.points b{display:block}
+.points span{font-size:15px;color:var(--texte2)}
+
+/* La maison */
+.maison{background:var(--seigle);color:var(--beurre)}
+.maison .wrap{display:grid;grid-template-columns:6fr 5fr;gap:56px;align-items:center;padding-top:90px;padding-bottom:90px}
+.maison .intro{margin:18px 0 26px;color:var(--clair);font-size:19px;max-width:44ch}
+.engagements{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+.engagements li{display:flex;gap:14px}
+.engagements li::before{content:"";flex:none;width:12px;height:12px;margin-top:8px;border-radius:50%;background:var(--miel)}
+.maison img{height:440px;border-radius:28px}
+
+/* Galerie */
+.galerie{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding-top:90px;padding-bottom:90px}
+.galerie img{height:280px;border-radius:24px}
+.galerie .arche{border-radius:999px 999px 24px 24px}
+
+/* Nous trouver */
+.infos{background:var(--sable)}
+.infos .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;padding-top:90px;padding-bottom:90px}
+.adresse{margin:20px 0 4px;font-size:20px;font-weight:800}
+.note{font:800 46px var(--titre);color:var(--croute)}
+.horaires{background:var(--mie);border-radius:28px;padding:28px 32px;align-self:start}
+.horaires h3{margin:0 0 12px;font-size:18px;font-weight:800}
+.horaires table{width:100%;border-collapse:collapse;font-size:16px}
+.horaires td{padding:9px 0;border-bottom:2px dashed var(--trait)}
+.horaires td:last-child{text-align:right}
+.horaires tr.aujourdhui td{font-weight:800;color:var(--croute)}
+
+/* Pied de page */
+.pied{background:var(--nuit);color:var(--clair);font-size:15px}
+.pied-grille{max-width:1240px;margin:0 auto;padding:72px 40px 48px;display:grid;grid-template-columns:4fr 2fr 3fr 3fr;gap:40px}
+.pied p{margin:0 0 10px}
+.pied b{color:var(--beurre)}
+.pied .logo{margin-bottom:14px}
+.pied .logo span{font-size:26px}
+.pied-marque p{max-width:32ch;margin-bottom:20px}
+.reseaux{display:flex;gap:10px}
+.reseaux a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:2px solid rgba(255,243,212,.3);color:var(--beurre)}
+.reseaux a:hover{border-color:var(--miel);color:var(--miel)}
+.reseaux svg{width:18px;height:18px}
+.pied-titre{font-weight:800;color:var(--beurre);margin-bottom:14px!important}
+.pied-liens{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.pied-liens a{color:var(--clair);text-decoration:none}
+.pied-liens a:hover{color:var(--miel)}
+.pied-accent{color:var(--miel);font-weight:700;text-decoration:none;word-break:break-all}
+.pied-bas{max-width:1240px;margin:0 auto;padding:20px 40px 32px;border-top:1px solid rgba(255,243,212,.15);display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;font-size:13px;color:#c8ae86}
+.pied-legal{display:flex;flex-wrap:wrap;gap:18px}
+.pied-bas a{color:#c8ae86}
+
+/* ---------- iPad (≤ 1024 px) ---------- */
+@media (max-width:1024px){
+  .wrap{padding:0 36px}
+  .nav a:not(.garde){display:none}
+  .hero-corps{padding-top:90px;padding-bottom:120px}
+  .hero h1{font-size:60px}
+  .macaron{right:36px;width:116px;height:116px;font-size:17px;bottom:-54px}
+  .titre-section{font-size:42px}
+  .f-grille{grid-template-columns:1fr}
+  .fournee{display:grid;grid-template-columns:auto 1fr;gap:4px 24px;align-items:center}
+  .f-haut{grid-row:1/3;flex-direction:column;align-items:flex-start;margin:0}
+  .p-corps{grid-template-columns:2fr 3fr;gap:28px}
+  .p-photo{height:440px}
+  .semaine{grid-template-columns:2fr 3fr;gap:36px}
+  .semaine img{height:460px}
+  .semaine h2{font-size:44px}
+  .points{grid-template-columns:1fr}
+  .maison .wrap{grid-template-columns:1fr 1fr;gap:32px}
+  .maison img{height:380px}
+  .galerie img{height:200px}
+  .infos .wrap{gap:32px}
+  .pied-grille{grid-template-columns:repeat(3,1fr);padding:56px 36px 36px}
+  .pied-marque{grid-column:1/-1}
+  .pied-bas{padding:18px 36px 30px}
+}
+
+/* ---------- Téléphone (≤ 640 px) ---------- */
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{padding:0 18px}
+  .top{padding-top:14px;padding-bottom:14px;gap:10px}
+  .logo span{font-size:23px}
+  .nav{display:none}
+  .btn-accent{width:44px;height:44px;min-height:44px;padding:0;border-radius:50%}
+  .btn-accent span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .hero{background-position:30% center}
+  .hero::before{background:linear-gradient(180deg,rgba(38,22,12,.45) 0%,rgba(38,22,12,.6) 40%,rgba(38,22,12,.9) 100%)}
+  .hero-corps{padding-top:150px;padding-bottom:44px}
+  .hero h1{font-size:44px;line-height:1;margin-bottom:14px}
+  .hero p{font-size:16px;margin-bottom:24px}
+  .actions{flex-direction:column}
+  .actions .btn{width:100%;min-height:52px}
+  .macaron{display:none}
+  .titre-section{font-size:34px;line-height:1.05}
+  .entete{margin-bottom:22px}
+  .fournees{padding:52px 0}
+  .fournee{display:block;padding:18px 18px 20px;border-radius:22px}
+  .f-haut{flex-direction:row;align-items:center;margin-bottom:8px}
+  .f-heure{font-size:34px}
+  .f-etat{font-size:12px}
+  .produits{padding:52px 0 44px}
+  .onglets{flex-wrap:nowrap;overflow-x:auto;width:100%;padding-bottom:4px}
+  .onglets button{flex:none;white-space:nowrap}
+  .p-corps{grid-template-columns:1fr;gap:14px}
+  .p-photo{height:250px}
+  .p-intro{font-size:15px}
+  .produit{padding:16px 18px;border-radius:18px}
+  .produit-haut{flex-direction:column-reverse;align-items:flex-start;gap:8px}
+  .produit h3{font-size:22px}
+  .produit p{font-size:15px}
+  .semaine{grid-template-columns:1fr;gap:22px;padding-top:52px;padding-bottom:52px}
+  .semaine img{height:340px}
+  .semaine h2{font-size:36px;margin-bottom:12px}
+  .semaine p.texte{font-size:16px}
+  .maison .wrap{grid-template-columns:1fr;gap:20px;padding-top:52px;padding-bottom:52px}
+  .maison .intro{font-size:15px;margin:10px 0 0}
+  .maison img{height:220px;border-radius:22px;order:-1}
+  .engagements{font-size:15px}
+  .galerie{grid-template-columns:1fr 1fr;gap:10px;padding-top:44px;padding-bottom:44px}
+  .galerie img{height:150px;border-radius:18px}
+  .galerie img:first-child{grid-column:span 2;height:190px}
+  .infos .wrap{grid-template-columns:1fr;gap:22px;padding-top:52px;padding-bottom:52px}
+  .infos .actions{display:grid;grid-template-columns:1fr 1fr}
+  .note{font-size:36px}
+  .horaires{padding:18px 20px 8px;border-radius:22px}
+  .pied-grille{grid-template-columns:1fr 1fr;gap:24px 16px;padding:48px 18px 28px}
+  .pied-grille>div:last-child{grid-column:1/-1}
+  .pied-bas{flex-direction:column;padding:16px 18px 28px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap top">
+    <a class="logo" href="#">
+      <svg aria-hidden="true" width="34" height="34" viewBox="0 0 40 40" fill="none" stroke="#f2b441" stroke-width="2.4" stroke-linecap="round"><path d="M5 26c0-9 7-15 15-15s15 6 15 15c0 2-1.5 3-3.5 3h-23C6.5 29 5 28 5 26z"/><path d="M14 18l3 5M20 16v6M26 18l-3 5"/></svg>
+      <span>Mie &amp; Marée</span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#fournees">Les fournées</a>
+      <a class="garde" href="#produits">Nos produits</a>
+      <a href="#maison">La maison</a>
+      <a class="garde" href="#infos">Nous trouver</a>
+    </nav>
+    <a class="btn btn-accent" href="tel:+33298000000" aria-label="Appeler la boulangerie">
+      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+      <span>Appeler</span>
+    </a>
+  </div>
+  <div class="wrap hero-corps" role="img" aria-label="Miches de pain aux graines et épis de blé sur une table en bois">
+    <div>
+      <h1>Le pain sort du four trois fois par jour.</h1>
+      <p>Pétri à la main, cuit sur place, à deux pas du port. Viennoiseries pur beurre, kouign-amann et far breton comme à la maison.</p>
+      <div class="actions">
+        <a class="btn btn-miel" href="#produits">Découvrir nos produits</a>
+        <a class="btn btn-contour" href="#infos">Horaires et adresse</a>
+      </div>
+    </div>
+    <div class="macaron" aria-hidden="true">Pétri<br>&amp; cuit<br>ici</div>
+  </div>
+</header>
+
+<main>
+  <section id="fournees" class="fournees">
+    <div class="wrap">
+      <div class="entete">
+        <h2 class="titre-section">Les fournées du jour</h2>
+        <p>Passez au bon moment : le pain est encore tiède dans le quart d'heure qui suit la sortie du four.</p>
+      </div>
+      <div class="f-grille" id="fournees-liste"></div>
+    </div>
+  </section>
+
+  <section id="produits" class="produits">
+    <div class="wrap">
+      <div class="entete">
+        <h2 class="titre-section">Nos produits</h2>
+        <div class="onglets" role="tablist" aria-label="Catégories de produits">
+          <button type="button" role="tab" data-tab="pains" aria-selected="true">Les pains</button>
+          <button type="button" role="tab" data-tab="viennoiseries" aria-selected="false">Viennoiseries</button>
+          <button type="button" role="tab" data-tab="douceurs" aria-selected="false">Douceurs bretonnes</button>
+        </div>
+      </div>
+      <div class="p-corps" role="tabpanel">
+        <img class="p-photo arche" id="p-photo" src="images/panier-pains.jpg" alt="Panier de pains variés et épis de blé">
+        <div class="p-liste">
+          <p class="p-intro" id="p-intro"></p>
+          <div id="p-produits" class="p-liste"></div>
+          <p class="p-note">Prix affichés en boutique : [PRIX].</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap semaine">
+    <img class="arche" src="images/pain-tranche.jpg" alt="Pain de campagne tranché sur une planche, avec des épis de blé">
+    <div>
+      <p class="pastille">Le pain de la semaine</p>
+      <h2>Le campagne au levain</h2>
+      <p class="texte">Un levain nourri chaque matin, une pâte qui repose toute une nuit, une cuisson longue pour une croûte bien dorée. Sa mie reste moelleuse trois jours : le pain des tartines du dimanche et des soupes de la semaine.</p>
+      <div class="points">
+        <div><b>Levain naturel</b><span>sans levure ajoutée</span></div>
+        <div><b>Une nuit de pousse</b><span>pour le goût et la digestion</span></div>
+        <div><b>Entier ou en demi</b><span>tranché à la demande</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="maison" class="maison">
+    <div class="wrap">
+      <div>
+        <h2 class="titre-section">Tout est fait ici, la nuit</h2>
+        <p class="intro">Pendant que le quartier dort, le fournil tourne. De la pâte à la vitrine, rien ne vient d'ailleurs.</p>
+        <ul class="engagements">
+          <li><span><b>Des farines de meunier</b>, choisies pour leur goût et travaillées sans additif.</span></li>
+          <li><span><b>Un feuilletage maison</b> pour chaque croissant, tourné à la main au beurre.</span></li>
+          <li><span><b>Les recettes de la région</b> : kouign-amann, far breton, gâteau breton.</span></li>
+        </ul>
+      </div>
+      <img src="images/fournil.jpg" alt="Le boulanger dans la boutique, devant les étagères de pains">
+    </div>
+  </section>
+
+  <div class="wrap galerie">
+    <img class="arche" src="images/vitrine.jpg" alt="Vitrine de viennoiseries et de pains">
+    <img src="images/plateau-croissants.jpg" alt="Croissants dorés alignés sur une plaque">
+    <img class="arche" src="images/tartes-fruits.jpg" alt="Vitrine de pâtisseries et tartelettes aux fruits rouges" style="object-position:center 35%">
+  </div>
+
+  <section id="infos" class="infos">
+    <div class="wrap">
+      <div>
+        <h2 class="titre-section">Nous trouver</h2>
+        <p class="adresse">8 quai des Fournées</p>
+        <p style="margin:0 0 24px;font-size:20px">29200 Brest</p>
+        <p style="margin:0 0 28px;font-size:18px"><span class="note">[NOTE]</span> / 5 sur Google, d'après [NOMBRE] avis</p>
+        <div class="actions">
+          <a class="btn btn-seigle" href="tel:+33298000000">Appeler le 02 98 00 00 00</a>
+          <a class="btn btn-contour" href="https://www.google.com/maps" target="_blank" rel="noopener">Itinéraire</a>
+        </div>
+      </div>
+      <div class="horaires">
+        <h3>Horaires</h3>
+        <table><tbody id="horaires"></tbody></table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pied">
+  <div class="pied-grille">
+    <div class="pied-marque">
+      <a class="logo" href="#">
+        <svg aria-hidden="true" width="32" height="32" viewBox="0 0 40 40" fill="none" stroke="#f2b441" stroke-width="2.4" stroke-linecap="round"><path d="M5 26c0-9 7-15 15-15s15 6 15 15c0 2-1.5 3-3.5 3h-23C6.5 29 5 28 5 26z"/><path d="M14 18l3 5M20 16v6M26 18l-3 5"/></svg>
+        <span>Mie &amp; Marée</span>
+      </a>
+      <p>Boulangerie artisanale près du port de Brest. Pains au levain, viennoiseries pur beurre et douceurs bretonnes.</p>
+      <div class="reseaux">
+        <a href="https://www.instagram.com" aria-label="Instagram de Mie &amp; Marée"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
+        <a href="https://www.facebook.com" aria-label="Facebook de Mie &amp; Marée"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6.5v3.5H9V21h3.5v-7.5H15l.5-3.5h-3V7a1 1 0 0 1 1-1H15z"/></svg></a>
+        <a href="https://www.google.com/maps" aria-label="Fiche Google de Mie &amp; Marée"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <p class="pied-titre">Le site</p>
+      <ul class="pied-liens">
+        <li><a href="#fournees">Les fournées</a></li>
+        <li><a href="#produits">Nos produits</a></li>
+        <li><a href="#maison">La maison</a></li>
+        <li><a href="#infos">Nous trouver</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="pied-titre">Horaires</p>
+      <p>Mardi au samedi<br><b>6 h 30 – 19 h 30</b></p>
+      <p>Dimanche<br><b>7 h – 13 h</b></p>
+      <p>Lundi : fermé</p>
+    </div>
+    <div>
+      <p class="pied-titre">Contact</p>
+      <p>8 quai des Fournées<br>29200 Brest</p>
+      <p><a class="pied-accent" href="tel:+33298000000">02 98 00 00 00</a><br><a class="pied-accent" href="mailto:bonjour@mie-et-maree.test">bonjour@mie-et-maree.test</a></p>
+    </div>
+  </div>
+  <div class="pied-bas">
+    <span>© 2026 Mie &amp; Marée. Maquette de démonstration, coordonnées fictives.</span>
+    <span class="pied-legal"><a href="#">Mentions légales</a><a href="#">Politique de confidentialité</a><a href="#">Gestion des cookies</a></span>
+    <span>Photos : Unsplash (Wesual Click, Mae Mu, Ulysse Pointcheval, Yeh Xintong, Andy Li, Conor Brown, Victoria Shes)</span>
+  </div>
+</footer>
+
+<script>
+/* ---------- Fournées du jour ---------- */
+const FOURNEES = [
+  {min:405, heure:"6 h 45", titre:"Première fournée", detail:"Baguettes tradition, pains de campagne et pains aux graines."},
+  {min:690, heure:"11 h 30", titre:"Fournée du midi", detail:"Tradition tiède pour le déjeuner, sandwichs garnis du jour."},
+  {min:990, heure:"16 h 30", titre:"Fournée du goûter", detail:"Pains au chocolat, kouign-amann et la dernière tradition."}
+];
+function delai(d){return d>=60?Math.floor(d/60)+" h "+String(d%60).padStart(2,"0"):d+" min"}
+function majFournees(){
+  const now=new Date(),m=now.getHours()*60+now.getMinutes(),next=FOURNEES.find(f=>f.min>m);
+  document.getElementById("fournees-liste").innerHTML=FOURNEES.map(f=>{
+    const passee=f.min<=m,prochaine=f===next;
+    const etat=passee?"Sortie du four":(prochaine?"Dans "+delai(f.min-m):"À venir");
+    return `<article class="fournee ${passee?"passee":""} ${prochaine?"prochaine":""}">
+      <div class="f-haut"><span class="f-heure">${f.heure}</span><span class="f-etat">${etat}</span></div>
+      <h3>${f.titre}</h3><p>${f.detail}</p></article>`;
+  }).join("");
+}
+majFournees(); setInterval(majFournees,60000);
+
+/* ---------- Produits ---------- */
+const PRODUITS = {
+  pains:{src:"images/panier-pains.jpg",alt:"Panier de pains variés et épis de blé",pos:"center",intro:"Des pains à longue fermentation, façonnés à la main chaque nuit.",items:[
+    ["Baguette tradition","Farine sans additif, longue fermentation, croûte qui chante.","Le plus demandé"],
+    ["Pain de campagne au levain","Mie dense et parfumée, se garde trois jours.","Spécialité"],
+    ["Pain aux graines","Tournesol, lin et sésame, pour les tartines du matin.","Nouveau"]]},
+  viennoiseries:{src:"images/croissants.jpg",alt:"Deux croissants dorés",pos:"center",intro:"Un feuilletage tourné à la main, au beurre, chaque jour.",items:[
+    ["Croissant pur beurre","Feuilleté maison, croustillant dehors, fondant dedans.","Le plus demandé"],
+    ["Pain au chocolat","Deux barres de chocolat noir, comme il se doit.","Incontournable"],
+    ["Kouign-amann","La spécialité bretonne : beurre, sucre, caramel.","Spécialité"]]},
+  douceurs:{src:"images/tartes-fruits.jpg",alt:"Vitrine de pâtisseries et tartelettes aux fruits",pos:"center 30%",intro:"Les recettes de la région, et des tartes qui suivent les saisons.",items:[
+    ["Far breton","Aux pruneaux, à la part ou entier pour le dimanche.","Spécialité"],
+    ["Tarte aux fruits de saison","Pâte sablée, crème pâtissière, fruits du moment.","De saison"],
+    ["Gâteau breton","Beurre salé et rhum, nature ou fourré à la framboise.","Fait maison"]]}
+};
+function afficher(cle){
+  const c=PRODUITS[cle],img=document.getElementById("p-photo");
+  img.src=c.src;img.alt=c.alt;img.style.objectPosition=c.pos;
+  document.getElementById("p-intro").textContent=c.intro;
+  document.getElementById("p-produits").innerHTML=c.items.map(([n,d,t])=>`<div class="produit"><div class="produit-haut"><h3>${n}</h3><span class="etiquette ${t==="Spécialité"?"specialite":""}">${t}</span></div><p>${d}</p></div>`).join("");
+  document.querySelectorAll(".onglets button").forEach(b=>b.setAttribute("aria-selected",b.dataset.tab===cle?"true":"false"));
+}
+document.querySelector(".onglets").addEventListener("click",e=>{const b=e.target.closest("button");if(b)afficher(b.dataset.tab)});
+afficher("pains");
+Object.values(PRODUITS).forEach(c=>{const i=new Image();i.src=c.src});
+
+/* ---------- Horaires (fictifs) ---------- */
+const HORAIRES={1:"Fermé",2:"6 h 30 – 19 h 30",3:"6 h 30 – 19 h 30",4:"6 h 30 – 19 h 30",5:"6 h 30 – 19 h 30",6:"6 h 30 – 19 h 30",0:"7 h – 13 h"};
+const JOURS=["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"],auj=new Date().getDay();
+document.getElementById("horaires").innerHTML=[1,2,3,4,5,6,0].map(d=>`<tr class="${d===auj?"aujourdhui":""}"><td>${JOURS[d]}</td><td>${HORAIRES[d]}</td></tr>`).join("");
+</script>
+</body>
+</html>
